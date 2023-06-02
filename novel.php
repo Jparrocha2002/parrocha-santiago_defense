@@ -18,6 +18,19 @@ class Novel extends Db implements Table
         $this->sql($sql);
 
     }
+
+    public function insert($id, $title, $status, $release, $desc)
+    {
+        $insert = "INSERT INTO $this->tblname(id, title, status, release_date, description)
+        VALUES($id,$title,$status,$release,$desc)";
+        $this->sql($insert);
+    }
+
+    public function selectAll($id)
+    {
+        $data = "SELECT * FROM $this->tblname where id = $id";
+        return $this->sql($data);
+    }
 }
 
 ?>

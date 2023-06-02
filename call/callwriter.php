@@ -1,10 +1,10 @@
 <?php
 include "../writer.php";
 
-$check = new Writer();
-$check->createtTbl();
+$call = new Writer();
+$call->createTbl();
 
-var_dump($_POST);
+var_dump($_GET);
 
-echo json_encode($check);
+echo json_encode($call);
 ?>

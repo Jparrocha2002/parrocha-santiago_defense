@@ -1,10 +1,10 @@
 <?php
 include "../novel.php";
 
-$check = new Novel();
-$check->createTbl();
+$call = new Novel();
+$call->createTbl();
 
-var_dump($_POST);
+var_dump($_GET);
 
-echo json_encode($check);
+echo json_encode($call);
 ?>

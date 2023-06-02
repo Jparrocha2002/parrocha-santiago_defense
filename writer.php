@@ -12,7 +12,7 @@ class Writer extends Db implements Table
             first_name text,
             last_name text,
             middle_name text,
-            birthdate varchar(20)
+            gender varchar(20)
             )";
         $this->initialize();
         $this->sql($sql);
