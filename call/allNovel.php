@@ -3,8 +3,8 @@ include "../novel.php";
 
 $all = new Novel();
 $all->createTbl();
-$data = $all->fetch_novel();
-
+$data = $all->getAll();
+var_dump($data);
 if(empty($data))
 {
     $response = [
@@ -12,7 +12,7 @@ if(empty($data))
         'message' => 'no novel found'
     ];
 
-    return json_encode($response);
+    echo json_encode($response);
 }
-var_dump($_GET);
+var_dump($_POST);
 ?>

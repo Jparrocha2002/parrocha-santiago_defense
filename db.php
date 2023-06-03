@@ -20,5 +20,9 @@ class Db extends Database
     {
         return $this->conn->query($sql);
     }
+
+    public function error() {
+        return $this->conn->error;
+    }
 }
 ?>

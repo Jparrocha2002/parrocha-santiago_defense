@@ -4,12 +4,12 @@ include "../writer.php";
 $insert = new Writer();
 $insert->createTbl();
 
-if(!empty($_GET['id']))
+if(!empty($_POST['fname']))
 {
-    $insert->insert($_GET['id'], $_GET['fname'],$_GET['lname'],$_GET['mname'], $_GET['gender']);
+    $insert->insert(NULL, $_POST['fname'],$_POST['lname'],$_POST['mname'], $_POST['gender']);
 }
 
-var_dump($_GET);
+var_dump($_POST);
 
 echo json_encode($insert);
 ?>

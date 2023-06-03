@@ -3,30 +3,14 @@ include "../novel.php";
 
 $insert = new Novel();
 $insert->createTbl();
-
-if(!empty($_GET['id']))
+var_dump($insert);
+if(!empty($insert))
 {
-    $insert->insert($_GET['id'], $_GET['title'],$_GET['status'],$_GET['release'], $_GET['desc']);
+    $insert->insert(NULL, $_POST['title'],$_POST['status'],$_POST['release'], $_POST['desc']);
 }
 
-var_dump($_GET);
+var_dump($_POST);
 
 echo json_encode($insert);
 
-// if(!empty($_GET['id']))
-// {
-//     $values = [
-//         'title' => $_GET['title'],
-//         'status' => $_GET['status'],
-//         'release_date' => $_GET['release'],
-//         'description' => $_GET['desc'],  
-//     ];
-// }
-
-// $status = $insert->insert($values);
-
-// If ($status == true)
-// {
-//     echo json_encode($status);
-// }
 ?>
