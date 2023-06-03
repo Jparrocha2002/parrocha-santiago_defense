@@ -1,15 +1,15 @@
 <?php
-include "../novel.php";
+include "../writer.php";
 
-$all = new Novel();
+$all = new Writer();
 $all->createTbl();
-$data = $all->fetch_novel();
+$data = $all->fetch_writer();
 
 if(empty($data))
 {
     $response = [
         'code' => 404,
-        'message' => 'no novel found'
+        'message' => 'no writer found'
     ];
 
     return json_encode($response);

@@ -18,5 +18,23 @@ class Writer extends Db implements Table
         $this->sql($sql);
 
     }
+
+    public function insert($fname, $lname, $mname, $gender)
+    {
+        $insert = "INSERT INTO $this->tblname(id, title, status, release_date, description)
+        VALUES(NULL, $fname, $lname, $mname, $gender)";
+        $this->sql($insert);
+    }
+
+    public function fetch_writer() 
+    {
+        $all = $this->sql("SELECT * FROM $this->tblname ORDER BY id desc");
+        return $all->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function delete_writer($id) 
+    {
+        return $this->sql("DELETE FROM $this->tblname WHERE id = $id");
+    }
 }
 ?>

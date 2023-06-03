@@ -19,17 +19,22 @@ class Novel extends Db implements Table
 
     }
 
-    public function insert($id, $title, $status, $release, $desc)
+    public function insert($title, $status, $release, $desc)
     {
         $insert = "INSERT INTO $this->tblname(id, title, status, release_date, description)
-        VALUES($id,$title,$status,$release,$desc)";
+        VALUES(NULL, $title, $status, $release, $desc)";
         $this->sql($insert);
     }
 
-    public function selectAll($id)
+    public function fetch_novel() 
     {
-        $data = "SELECT * FROM $this->tblname where id = $id";
-        return $this->sql($data);
+        $all = $this->sql("SELECT * FROM $this->tblname ORDER BY id desc");
+        return $all->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function delete_novel($id) 
+    {
+        return $this->sql("DELETE FROM $this->tblname WHERE id = $id");
     }
 }
 
